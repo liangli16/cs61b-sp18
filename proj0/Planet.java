@@ -79,6 +79,7 @@ public class Planet {
 		}
 		return Fnety;
 	}
+
 	public void update(double dt, double fX, double fY) {
 		double anetx = fX / this.mass;
 		double anety = fY / this.mass;
@@ -86,5 +87,12 @@ public class Planet {
 		this.yyVel = this.yyVel + dt * anety;
 		this.xxPos = this.xxPos + dt * xxVel;
 		this.yyPos = this.yyPos + dt * yyVel;
+	}
+
+	public void Draw() {
+		double xPos = this.xxPos;
+		double yPos = this.yyPos;
+		String filename = "images/" + this.imgFileName;
+		StdDraw.picture(xPos, yPos, filename);
 	}
 }
