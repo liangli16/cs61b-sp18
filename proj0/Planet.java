@@ -5,7 +5,7 @@ public class Planet {
 	public double yyVel;
 	public double mass;
 	public String imgFileName;
-	private static double G = 6.67e-11;
+	public static double G = 6.67e-11;
 
 	public Planet(double xP, double yP, double xV,
 		      double yV, double m, String img) {
@@ -89,7 +89,7 @@ public class Planet {
 		this.yyPos = this.yyPos + dt * yyVel;
 	}
 
-	private void Draw() {
+	public void Draw() {
 		double xPos = this.xxPos;
 		double yPos = this.yyPos;
 		String filename = "images/" + this.imgFileName;
