@@ -67,6 +67,10 @@ public class NBody {
 			StdDraw.pause(10);
 		}
 
+		/**Play the audio*/
+		String audiofile = "audio/2001.mid";
+		StdAudio.play(audiofile);
+
 		/**Print out the universe*/
 		StdOut.printf("%d\n", planets.length);
 		StdOut.printf("%.2e\n", Radius);
