@@ -44,7 +44,7 @@ public class NBody {
 
 		/**Draw all planets*/
 		for (Planet p:planets) {
-			p.Draw();
+			p.draw();
 		}
 		
 		/**Creating an Animation*/
@@ -61,7 +61,7 @@ public class NBody {
 			}
 			StdDraw.picture(0, 0, imageToDraw);
 			for (Planet p:planets) {
-				p.Draw();
+				p.draw();
 			}
 			StdDraw.show();
 			StdDraw.pause(10);
