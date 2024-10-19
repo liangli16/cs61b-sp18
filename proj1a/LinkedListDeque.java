@@ -1,46 +1,46 @@
 public class LinkedListDeque<T> {
+
     public class IntNode<T> {
         public IntNode prev;
         public T item;
         public IntNode next;
-        public IntNode(IntNode m, T i, IntNode n) {
-            prev = m;
+        public IntNode(IntNode p, T i, IntNode n) {
+            prev = p;
             item = i;
             next = n;
         }
     }
 
     private IntNode sentinel;
+/**    private IntNode prev;
+    private IntNode item;
+    private IntNode next;
     private IntNode first;
-    private IntNode last;
+    private IntNode last;*/
     private int size;
 
 
     /**Create an empty Deque*/
     public LinkedListDeque() {
-        sentinel = new IntNode(null,15, null);
-        sentinel.next = sentinel.prev;
-        sentinel.prev = sentinel.item;
+        sentinel = new IntNode(sentinel,15, sentinel);
         size = 0;
     }
 
 
     public LinkedListDeque(T item) {
-        sentinel = new IntNode(null,15, null);
-        sentinel.next = new IntNode(null, item, null);
-        sentinel.prev = sentinel.next.next;
+        sentinel = new IntNode(sentinel,15, sentinel);
+        sentinel.next = new IntNode(sentinel, item, sentinel);
+        sentinel.prev = sentinel.next;
         size = 1;
     }
 
     public void addFirst(T item) {
-        sentinel.next = new IntNode(null, item, null);
-        first = sentinel.next;
+        sentinel.next = new IntNode(sentinel, item, sentinel.next);
         size += 1;
     }
 
     public void addLast(T item) {
-        sentinel.prev = new IntNode(null, item, null);
-        last = sentinel.prev;
+        sentinel.prev = new IntNode(sentinel.prev, item, sentinel);
         size += 1;
     }
 
@@ -57,13 +57,24 @@ public class LinkedListDeque<T> {
 
     public void printDeque() {
        IntNode p = sentinel.next;
-        while (p.next != sentinel.next) {
+        while (p.next != sentinel) {
             System.out.print(p.item + " ");
+            p = p.next;
         }
         System.out.println();
     }
-
+/**
     public T removeFirst() {
-        
+
+    }*/
+
+    public static void main(String[] args) {
+       // LinkedListDeque<String> a0 = new LinkedListDeque<>();
+        LinkedListDeque<String> a1 = new LinkedListDeque<>("1st");
+       // a1.addFirst("2nd");
+        a1.addLast(("2nd"));
+        //int x = a0.size();
+        //System.out.println(x);
+        a1.printDeque();
     }
 }
