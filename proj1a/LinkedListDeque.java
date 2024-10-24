@@ -1,9 +1,9 @@
 public class LinkedListDeque<T> {
 
     private class IntNode<T> {
-        public IntNode prev;
-        public T item;
-        public IntNode next;
+        IntNode prev;
+        T item;
+        IntNode next;
         public IntNode(IntNode p, T i, IntNode n) {
             prev = p;
             item = i;
