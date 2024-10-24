@@ -93,7 +93,7 @@ public class ArrayDeque<T> {
      }*/
 
 
-    public static void main(String[] args) {
+    /**public static void main(String[] args) {
         ArrayDeque<Integer> a0 = new ArrayDeque();
         a0.addLast(8);
         a0.addFirst(1);
@@ -102,5 +102,5 @@ public class ArrayDeque<T> {
         int z = a0.get(2);
         int x = a0.removeFirst();
         int y = a0.removeLast();
-    }
+    }*/
 }
