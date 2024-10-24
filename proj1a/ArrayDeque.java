@@ -54,12 +54,12 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
-        T p = (T) sentinel[0];
         //Remove first item and update sentinel.
         Object[] temp = new Object[sentinel.length - 1];
         System.arraycopy(sentinel, 1, temp, 0, sentinel.length - 1);
         sentinel = temp;
         size -= 1;
+        T p = (T) sentinel[0];
         return p;
     }
 
@@ -67,12 +67,12 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
-        T p = (T) sentinel[size - 1];
         //Remove last item and update sentinel.
         Object[] temp = new Object[sentinel.length - 1];
         System.arraycopy(sentinel, 0, temp, 0, sentinel.length - 1);
         //temp[size - 1] = 0;
         sentinel = temp;
+        T p = (T) sentinel[size - 1];
         size -= 1;
         return p;
     }
