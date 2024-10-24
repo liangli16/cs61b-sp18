@@ -1,10 +1,6 @@
-import org.w3c.dom.html.HTMLLinkElement;
-
-import java.util.function.IntToDoubleFunction;
-
 public class LinkedListDeque<T> {
 
-    public class IntNode<T> {
+    private class IntNode<T> {
         public IntNode prev;
         public T item;
         public IntNode next;
@@ -21,19 +17,19 @@ public class LinkedListDeque<T> {
 
     /**Create an empty Deque*/
     public LinkedListDeque() {
-        sentinel = new IntNode(null,"start", null);
+        sentinel = new IntNode(null, "start", null);
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
         size = 0;
     }
 
 
-    public LinkedListDeque(T item) {
-        sentinel = new IntNode(null,"start", null);
+    /**public LinkedListDeque(T item) {
+        sentinel = new IntNode(null, "start", null);
         sentinel.next = new IntNode(sentinel, item, sentinel);
         sentinel.prev = sentinel.next;
         size = 1;
-    }
+    }*/
 
     public void addFirst(T item) {
         //set original first node prev to the new node (insert new "First node").
@@ -72,7 +68,7 @@ public class LinkedListDeque<T> {
     }
 
     public T removeFirst() {
-        if (sentinel.next == null) {
+        if (size == 0) {
             return null;
         }
         T p = (T) sentinel.next.item;
@@ -83,7 +79,7 @@ public class LinkedListDeque<T> {
     }
 
     public T removeLast() {
-        if (sentinel.prev == null) {
+        if (size == 0) {
             return null;
         }
         T p = (T) sentinel.prev.item;
@@ -121,7 +117,7 @@ public class LinkedListDeque<T> {
             return (T) p.item;
         }
         else {
-            return getRecursivehelper(p.next, index - 1);
+            return (T) getRecursivehelper(p.next, index - 1);
         }
     }
 
