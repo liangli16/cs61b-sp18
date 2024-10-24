@@ -102,7 +102,7 @@ public class LinkedListDeque<T> {
         return p_out;
     }
 
-    public LinkedListDeque(LinkedListDeque other) {
+    /**public LinkedListDeque(LinkedListDeque other) {
         sentinel = new IntNode(null,"start", null);
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
@@ -110,14 +110,14 @@ public class LinkedListDeque<T> {
         for (int i = 0; i < other.size(); i += 1) {
             this.addLast((T) other.get(i));
         }
-    }
+    }*/
 
     private T getRecursivehelper(IntNode p, int index) {
         if (index == 0) {
             return (T) p.item;
         }
         else {
-            return (T) getRecursivehelper(p.next, index - 1);
+            return getRecursivehelper(p.next, index - 1);
         }
     }
 
