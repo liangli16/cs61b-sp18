@@ -48,7 +48,7 @@ public class ArrayDeque<T> {
 
     public T removeFirst() {
         if (size == 0) {
-             return null;
+            return null;
         }
         T p = (T) sentinel[0];
         //Remove first item and update sentinel.
@@ -67,7 +67,7 @@ public class ArrayDeque<T> {
         //Remove last item and update sentinel.
         Object[] temp = new Object[sentinel.length - 1];
         System.arraycopy(sentinel, 0, temp, 0, sentinel.length - 1);
-        temp[size - 1] = null;
+        temp[size - 1] = 0;
         sentinel = temp;
         size -= 1;
         return p;

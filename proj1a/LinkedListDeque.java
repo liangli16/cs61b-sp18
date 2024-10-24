@@ -59,7 +59,7 @@ public class LinkedListDeque<T> {
     }
 
     public void printDeque() {
-       IntNode p = sentinel.next;
+        IntNode p = sentinel.next;
         while (p.next != sentinel.next) {
             System.out.print(p.item + " ");
             p = p.next;
@@ -90,16 +90,16 @@ public class LinkedListDeque<T> {
     }
 
     public T get(int index) {
-        IntNode p =sentinel.next;
+        IntNode p = sentinel.next;
         while (index != 0) {
             p = p.next;
             index -= 1;
         }
-        T p_out = (T) p.item;
-        if (p_out == null) {
+        T pout = (T) p.item;
+        if (pout == null) {
             return null;
         }
-        return p_out;
+        return pout;
     }
 
     /**public LinkedListDeque(LinkedListDeque other) {
@@ -115,19 +115,13 @@ public class LinkedListDeque<T> {
     private T getRecursivehelper(IntNode p, int index) {
         if (index == 0) {
             return (T) p.item;
-        }
-        else {
+        } else {
             return getRecursivehelper(p.next, index - 1);
         }
     }
 
     public T getRecursive(int index) {
-        if (index == 0) {
-            return (T) sentinel.next.item;
-        }
-        else {
-            return getRecursivehelper(sentinel, index);
-        }
+        return getRecursivehelper(sentinel.next, index);
     }
 
 /**    public static void main(String[] args) {
