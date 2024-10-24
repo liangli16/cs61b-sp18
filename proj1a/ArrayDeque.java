@@ -2,14 +2,18 @@ public class ArrayDeque<T> {
 
     private Object[] sentinel;
     private int size;
+    //private int front;
+    //private int end;
 
     public ArrayDeque() {
-        sentinel = new Object[]{0, 0, 0, 0, 0, 0, 0, 0};
+        sentinel = (T[]) new Object[8];
+        //front = 0;
+        //end = 0;
         size = 0;
     }
 
     private void resize(int capacity) {
-        Object[] p = new Object[capacity];
+        Object[] p = (T[]) new Object[capacity];
         System.arraycopy(sentinel, 0, p, 1, size);
         sentinel = p;
     }
@@ -67,14 +71,14 @@ public class ArrayDeque<T> {
         //Remove last item and update sentinel.
         Object[] temp = new Object[sentinel.length - 1];
         System.arraycopy(sentinel, 0, temp, 0, sentinel.length - 1);
-        temp[size - 1] = 0;
+        //temp[size - 1] = 0;
         sentinel = temp;
         size -= 1;
         return p;
     }
 
     public T get(int index) {
-        if (index >= size) {
+        if (index < 0 || index >= size) {
             return null;
         }
         return (T) sentinel[index];
@@ -86,7 +90,7 @@ public class ArrayDeque<T> {
         for (int i = 0; i < other.size(); i++) {
             this.addLast((T) other.get(i));
         }
-     }
+     }*/
 
 
     public static void main(String[] args) {
@@ -94,9 +98,9 @@ public class ArrayDeque<T> {
         a0.addLast(8);
         a0.addFirst(1);
         a0.addLast(9);
-        ArrayDeque<Integer> a1 = new ArrayDeque(a0);
+        //ArrayDeque<Integer> a1 = new ArrayDeque(a0);
         int z = a0.get(2);
         int x = a0.removeFirst();
         int y = a0.removeLast();
-    }*/
+    }
 }
