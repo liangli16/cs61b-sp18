@@ -134,26 +134,22 @@ public class LinkedListDeque<T> {
         }
     }
 
-    public static void main(String[] args) {
-       //LinkedListDeque<String> a0 = new LinkedListDeque<>();
+/**    public static void main(String[] args) {
+        LinkedListDeque<String> a0 = new LinkedListDeque<>();
         LinkedListDeque<String> a1 = new LinkedListDeque<>("1st");
-
         //test addFirst
-        /**a1.addFirst(("first2"));
+        a1.addFirst(("first2"));
         a1.addFirst("first3");
-        a1.addFirst("first4");*/
-
+        a1.addFirst("first4");
         //test addLast
         a1.addLast("last2");
         a1.addLast("last3");
         a1.addLast("last4");
-
-
-       String testr = a1.getRecursive(2);
+        String testr = a1.getRecursive(2);
         //a1.removeFirst();
         //a1.removeLast();
         //String test = a1.get(2);
         //LinkedListDeque<String> a2 = new LinkedListDeque<>(a1);
         //a1.printDeque();
-    }
+    }*/
 }
