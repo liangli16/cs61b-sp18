@@ -17,27 +17,27 @@ public class ArrayDeque<T> {
         //size up
         if (capacity < cap) {
             Object[] p = (T[]) new Object[cap];
-            int first_index = (nextFirst + 1) % capacity;
-            int first_length = capacity - first_index;
-            int new_first = cap - first_length;
-            int last_length = nextLast;
-            System.arraycopy(sentinel, 0, p, 0, last_length);
-            System.arraycopy(sentinel, first_index, p, new_first, first_length);
+            int firstindex = (nextFirst + 1) % capacity;
+            int firstlength = capacity - firstindex;
+            int newfirst = cap - firstlength;
+            int lastlength = nextLast;
+            System.arraycopy(sentinel, 0, p, 0, lastlength);
+            System.arraycopy(sentinel, firstindex, p, newfirst, firstlength);
             sentinel = p;
-            nextFirst = new_first - 1;
+            nextFirst = newfirst - 1;
             capacity = cap;
         }
         //size down
         if (capacity > cap) {
             Object[] p = (T[]) new Object[cap];
-            int first_index = (nextFirst + 1) % capacity;
-            int first_length = capacity - first_index;
-            int new_first = cap - first_length;
-            int last_length = (nextLast - 1) % cap;
-            System.arraycopy(sentinel, 0, p, 0, last_length);
-            System.arraycopy(sentinel, first_index, p, new_first, first_length);
+            int firstindex = (nextFirst + 1) % capacity;
+            int firstlength = capacity - firstindex;
+            int newfirst = cap - firstlength;
+            int lastlength = (nextLast - 1) % cap;
+            System.arraycopy(sentinel, 0, p, 0, lastlength);
+            System.arraycopy(sentinel, firstindex, p, newfirst, firstlength);
             sentinel = p;
-            nextFirst = new_first - 1;
+            nextFirst = newfirst - 1;
             nextLast = nextLast % cap;
             capacity = cap;
         }
@@ -73,8 +73,9 @@ public class ArrayDeque<T> {
     }
 
     public void printDeque() {
-        for (int i = 0; i < size; i++) {
-            System.out.println(sentinel[i] + " ");
+        for (int i = (nextFirst + 1); i < size; i++) {
+            int index = i % capacity;
+            System.out.println(sentinel[index] + " ");
         }
         System.out.println();
     }
