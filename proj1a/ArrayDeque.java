@@ -123,7 +123,8 @@ public class ArrayDeque<T> {
         if (index < 0 || index >= size) {
             return null;
         }
-        return (T) sentinel[index];
+        int pos = (index + nextFirst + 1) % capacity;
+        return (T) sentinel[pos];
     }
 
 
@@ -134,18 +135,17 @@ public class ArrayDeque<T> {
         }
      }*/
 
-
 //    public static void main(String[] args) {
 //        ArrayDeque<Integer> a0 = new ArrayDeque();
-//        a0.addLast(8);
+//        a0.addLast(0);
 //        a0.addFirst(1);
-//        a0.addLast(9);
+//        a0.addLast(8);
+//        a0.addFirst(2);
+//        a0.addFirst(3);
 //        a0.addFirst(4);
-//        a0.addFirst(4);
-//        a0.addFirst(4);
-//        a0.addFirst(4);
-//        a0.addFirst(4);
-//        a0.addFirst(4);
+//        a0.addFirst(5);
+//        a0.addFirst(6);
+//        a0.addFirst(7);
 //        a0.removeLast();
 //        a0.removeFirst();
 //        a0.removeLast();
@@ -154,9 +154,10 @@ public class ArrayDeque<T> {
 //        a0.removeLast();
 //        a0.removeLast();
 //        a0.removeFirst();
-//        //ArrayDeque<Integer> a1 = new ArrayDeque(a0);
-////        int z = a0.get(2);
-////        int x = a0.removeFirst();
-////        int y = a0.removeLast();
+//        int m = a0.get(4);
+//        ArrayDeque<Integer> a1 = new ArrayDeque(a0);
+//        int z = a0.get(2);
+//        int x = a0.removeFirst();
+//        int y = a0.removeLast();
 //    }
 }
