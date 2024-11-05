@@ -38,7 +38,7 @@ public class ArrayDeque<T> {
             System.arraycopy(sentinel, firstindex, p, newfirst, firstlength);
             sentinel = p;
             nextFirst = newfirst - 1;
-            nextLast = nextLast % cap;
+            nextLast = (nextLast - 1) % cap;
             capacity = cap;
         }
     }
@@ -89,12 +89,10 @@ public class ArrayDeque<T> {
         T p = (T) sentinel[firstindex];
         sentinel[firstindex] = null;
         size -= 1;
-        nextFirst = (nextFirst + 1) % capacity;
-
         if ((size * 4 <= capacity) && (capacity > 8)) {
             resize(capacity / 2);
         }
-
+        nextFirst = (nextFirst + 1) % capacity;
         return p;
     }
 
@@ -108,14 +106,13 @@ public class ArrayDeque<T> {
         }
         T p = (T) sentinel[lastindex];
         sentinel[lastindex] = null;
+        if ((size * 4 <= capacity) && (capacity > 8)) {
+            resize(capacity / 2);
+        }
         size -= 1;
         nextLast = (nextLast - 1) % capacity;
         if (nextLast < 0) {
             nextLast += capacity;
-        }
-
-        if ((size * 4 <= capacity) && (capacity > 8)) {
-            resize(capacity / 2);
         }
         return p;
     }
@@ -140,25 +137,21 @@ public class ArrayDeque<T> {
 //        ArrayDeque<Integer> a0 = new ArrayDeque();
 //        a0.addLast(0);
 //        a0.addFirst(1);
-//        a0.addLast(8);
-//        a0.addFirst(2);
-//        a0.addFirst(3);
 //        a0.addFirst(4);
-//        a0.addFirst(5);
-//        a0.addFirst(6);
-//        a0.addFirst(7);
-//        a0.removeLast();
+//        a0.addLast(6);
+//        a0.addLast(8);
+//        a0.addFirst(9);
+//        a0.addLast(11);
+//        a0.addFirst(13);
+//        a0.addFirst(14);
 //        a0.removeFirst();
 //        a0.removeLast();
 //        a0.removeLast();
-//        a0.removeLast();
-//        a0.removeLast();
-//        a0.removeLast();
 //        a0.removeFirst();
+//        a0.removeFirst();
+//        a0.removeFirst();
+//        a0.removeFirst();
+//        int m =a0.removeLast();
 //        int m = a0.get(4);
-//        ArrayDeque<Integer> a1 = new ArrayDeque(a0);
-//        int z = a0.get(2);
-//        int x = a0.removeFirst();
-//        int y = a0.removeLast();
 //    }
 }
