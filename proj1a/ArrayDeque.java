@@ -85,23 +85,20 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
-        if ((size * 4 <= capacity) && (capacity > 8)) {
-            resize(capacity / 2);
-        }
         int firstindex = (nextFirst + 1) % capacity;
         T p = (T) sentinel[firstindex];
         sentinel[firstindex] = null;
         size -= 1;
         nextFirst = (nextFirst + 1) % capacity;
+        if ((size * 4 <= capacity) && (capacity > 8)) {
+            resize(capacity / 2);
+        }
         return p;
     }
 
     public T removeLast() {
         if (size == 0) {
             return null;
-        }
-        if ((size * 4 <= capacity) && (capacity > 8)) {
-            resize(capacity / 2);
         }
         int lastindex = (nextLast - 1) % capacity;
         if (lastindex < 0) {
@@ -113,6 +110,9 @@ public class ArrayDeque<T> {
         nextLast = (nextLast - 1) % capacity;
         if (nextLast < 0) {
             nextLast += capacity;
+        }
+        if ((size * 4 <= capacity) && (capacity > 8)) {
+            resize(capacity / 2);
         }
         return p;
     }
