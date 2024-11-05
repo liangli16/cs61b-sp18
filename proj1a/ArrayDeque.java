@@ -38,7 +38,7 @@ public class ArrayDeque<T> {
             System.arraycopy(sentinel, firstindex, p, newfirst, firstlength);
             sentinel = p;
             nextFirst = newfirst - 1;
-            nextLast = (nextLast - 1) % cap;
+            nextLast = nextLast % cap;
             capacity = cap;
         }
     }
@@ -85,13 +85,13 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
+        if ((size * 4 <= capacity) && (capacity > 8)) {
+            resize(capacity / 2);
+        }
         int firstindex = (nextFirst + 1) % capacity;
         T p = (T) sentinel[firstindex];
         sentinel[firstindex] = null;
         size -= 1;
-        if ((size * 4 <= capacity) && (capacity > 8)) {
-            resize(capacity / 2);
-        }
         nextFirst = (nextFirst + 1) % capacity;
         return p;
     }
@@ -100,15 +100,15 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
+        if ((size * 4 <= capacity) && (capacity > 8)) {
+            resize(capacity / 2);
+        }
         int lastindex = (nextLast - 1) % capacity;
         if (lastindex < 0) {
             lastindex += capacity;
         }
         T p = (T) sentinel[lastindex];
         sentinel[lastindex] = null;
-        if ((size * 4 <= capacity) && (capacity > 8)) {
-            resize(capacity / 2);
-        }
         size -= 1;
         nextLast = (nextLast - 1) % capacity;
         if (nextLast < 0) {
