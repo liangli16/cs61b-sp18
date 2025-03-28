@@ -27,10 +27,18 @@ public class TestOffByOne {
 
     @Test
     public void testoffByOne3() {
-        char x = 'p';
-        char y = 'o';
+        char x = 'B';
+        char y = 'A';
         Boolean actual = offByOne.equalChars(x, y);
-        assertTrue("p and o are off by one", actual);
+        assertTrue("B and A are off by one", actual);
+    }
+
+    @Test
+    public void testoffByOne4() {
+        char x = '%';
+        char y = '&';
+        Boolean actual = offByOne.equalChars(x, y);
+        assertTrue("% and & are off by one", actual);
     }
 
     @Test

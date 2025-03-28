@@ -17,16 +17,14 @@ public class Palindrome {
         //Even number of chars
         if (word.length() % 2 == 0) {
             halfindex = word.length() / 2;
-        }
         //Odd number of chars
-        else {
+        } else {
             halfindex = (word.length() - 1) / 2;
         }
         for (int i = 0; i < halfindex; i++) {
             if (word.charAt(i) == word.charAt(last - i)) {
                 continue;
-            }
-            else {
+            } else {
                 return false;
             }
         }
@@ -43,16 +41,14 @@ public class Palindrome {
         //Even number of chars
         if (word.length() % 2 == 0) {
             halfindex = word.length() / 2;
-        }
         //Odd number of chars
-        else {
+        } else {
             halfindex = (word.length() - 1) / 2;
         }
         for (int i = 0; i < halfindex; i++) {
             if (cc.equalChars(word.charAt(i), word.charAt(last - i))) {
                 continue;
-            }
-            else {
+            } else {
                 return false;
             }
         }

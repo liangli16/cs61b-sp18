@@ -25,7 +25,7 @@ public class TestOffByN {
     }
 
     @Test
-    public void testoffBy5_2() {
+    public void testoffBy52() {
         char x = 'x';
         char y = 't';
         Boolean actual = offBy5.equalChars(x, y);

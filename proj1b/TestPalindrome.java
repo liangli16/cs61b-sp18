@@ -38,7 +38,7 @@ public class TestPalindrome {
         Deque d = palindrome.wordToDeque(word);
         Boolean actual = palindrome.isPalindrome(word);
         assertTrue(" is palindrome", actual);
-        }
+    }
 
     @Test
     public void testisPlaindrome4() {
