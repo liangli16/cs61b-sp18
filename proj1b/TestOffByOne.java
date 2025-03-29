@@ -64,6 +64,5 @@ public class TestOffByOne {
         Boolean actual = palindrome.isPalindrome(word, offByOne);
         assertFalse("Aasdf is not an offbyone palindrome", actual);
     }
-
-    //Uncomment this class once you've created your CharacterComparator interface and OffByOne class.
+    
 }
